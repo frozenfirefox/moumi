@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img class="circle" alt="Vue logo" src="../assets/image/logo.png">
+    <HelloWorld msg="欢迎登陆火星火箭！"/>
   </div>
 </template>
 
@@ -16,3 +16,26 @@ export default {
   }
 }
 </script>
+
+
+
+<style scoped>
+img
+{
+position:relative;
+animation:mymove 5s infinite;
+-webkit-animation:mymove 5s infinite; /*Safari and Chrome*/
+}
+
+@keyframes mymove
+{
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {transform: rotate(0deg);}
+to {transform: rotate(360deg);}
+}
+</style>

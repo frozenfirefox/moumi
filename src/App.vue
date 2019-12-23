@@ -10,6 +10,10 @@
                 <Icon type="ios-people" />
                 <router-link to="/about">关于我们</router-link>
             </MenuItem>
+            <MenuItem name="3">
+                <Icon type="ios-people" />
+                <router-link to="userList">用户列表</router-link>
+            </MenuItem>
             <!-- <Submenu name="3">
                 <template slot="title">
                     <Icon type="ios-stats" />

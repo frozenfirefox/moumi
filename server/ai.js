@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-25 14:32:54
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-25 15:37:33
+* @Last Modified time: 2019-12-25 17:47:00
 */
 
 'use strict';
@@ -46,7 +46,7 @@ const Ai = {
             let name = new Date().getTime();
             //这里处理一下图片吧
             fs.writeFileSync(merge_path+"/"+name+".jpg", new Buffer(res.data.result.merge_image, 'base64'));
-            response.send({merge_img: "/public/merge/"+name+".jpg"});
+            response.send({merge_img: "/public/merge/"+name+".jpge"});
             return res.data;
         }).catch((error) => {
             console.log(error);

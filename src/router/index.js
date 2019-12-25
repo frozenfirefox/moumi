@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import UserList from '../views/UserList.vue'
+import Aiface from '../views/Aiface.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,12 @@ const routes = [
     name: 'userList',
     component: UserList
   },
+  {
+    path: '/aiface',
+    name: 'aiface',
+    component: Aiface
+  },
+
 ]
 
 const router = new VueRouter({

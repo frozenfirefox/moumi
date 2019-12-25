@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-23 10:39:35
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-23 14:52:02
+* @Last Modified time: 2019-12-25 14:48:05
 */
 
 'use strict';
@@ -19,8 +19,15 @@ const bodyParser = require('body-parser')
 const express = require('express');
 const app = express();
 
+const multer = require('multer');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+//解析post文件
+var objMulter = multer({dest:'./public/upload'})
+app.use(objMulter.any());
+
 app.use(api);
 // 访问静态资源文件 这里是访问所有dist目录下的静态资源文件
 app.use(express.static(path.resolve(__dirname, '../dist')))

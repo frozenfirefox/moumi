@@ -12,7 +12,11 @@
             </MenuItem>
             <MenuItem name="3">
                 <Icon type="ios-people" />
-                <router-link to="userList">用户列表</router-link>
+                <router-link to="/userList">用户列表</router-link>
+            </MenuItem>
+            <MenuItem name="4">
+                <Icon type="ios-paper" />
+                <router-link to="/aiface">人脸融合</router-link>
             </MenuItem>
             <!-- <Submenu name="3">
                 <template slot="title">

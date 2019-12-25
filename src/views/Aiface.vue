@@ -59,7 +59,7 @@ export default {
         this.$axios.get('/api/login/getAccount').then((res) => {
             this.tableData = res.data;
         }).catch((error) => {
-            console.log(error);
+            window.console.log(error);
         })
     },
     success(response){
@@ -75,7 +75,7 @@ export default {
         })).then((res) => {
             this.merge_img = res.data.merge_img;
         }).catch((error) => {
-            console.log(error);
+            window.console.log(error);
         })
     },
   }

@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-25 14:32:54
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-25 17:47:00
+* @Last Modified time: 2019-12-26 09:18:35
 */
 
 'use strict';
@@ -12,6 +12,7 @@ const axios = require('axios');
 const qs = require('qs');
 // 引入文件模块
 const fs = require('fs');
+const path = require('path');
 
 const merge_path = __dirname+'/public/merge';
 
@@ -40,14 +41,30 @@ const Ai = {
             image_target: {"image": newbase, "image_type": 'BASE64', "quality_control": "NONE"},
         };
         axios.post(httpurl, qs.stringify(params)).then((res) => {
+            let re = {};
+            // console.log(res.data);
+            if(res.data.error_code != 0){
+                //处理错误的返回
+                re.error_code   = res.data.error_code;
+                re.error_msg    = res.data.error_msg;
+                response.send(re);
+                return false;
+            }
+
+            //处理正常的返回
             if(!fs.existsSync(merge_path)){
                 fs.mkdirSync(merge_path);
             }
-            let name = new Date().getTime();
+
+            let name = path.parse(path1).name+'_'+path.parse(path2).name;
+            let pic_path = merge_path+"/"+name+".jpg";
+
             //这里处理一下图片吧
-            fs.writeFileSync(merge_path+"/"+name+".jpg", new Buffer(res.data.result.merge_image, 'base64'));
-            response.send({merge_img: "/public/merge/"+name+".jpge"});
-            return res.data;
+            fs.writeFileSync(pic_path, new Buffer(res.data.result.merge_image, 'base64'));
+            re.error_code = 200;
+            re.merge_img  = '/public/merge/'+name+".jpg";
+            response.send(re);
+            return true;
         }).catch((error) => {
             console.log(error);
         })

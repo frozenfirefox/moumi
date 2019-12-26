@@ -43,6 +43,7 @@ const Ai = {
             if(!fs.existsSync(merge_path)){
                 fs.mkdirSync(merge_path);
             }
+	    console.log(res.data);
             let name = new Date().getTime();
             //这里处理一下图片吧
             fs.writeFileSync(merge_path+"/"+name+".jpg", new Buffer(res.data.result.merge_image, 'base64'));

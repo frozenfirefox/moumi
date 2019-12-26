@@ -66,6 +66,7 @@ router.post('/api/upload', (req, res) => {
 });
 
 router.get('*/public/*', function (req, res) {
+    console.log(__dirname + "/" + req.url.replace('api/', ''));
     res.sendFile( __dirname + "/" + req.url.replace('api/', ''));
     // console.log("Request for " + req.url + " received.");
 })

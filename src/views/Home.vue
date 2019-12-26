@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Header />
     <img class="circle" alt="Vue logo" src="../assets/image/logo.png">
     <HelloWorld msg="欢迎登陆火星火箭！"/>
   </div>
@@ -8,11 +9,13 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
+import Header from '@/components/Header.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    HelloWorld,
+    Header
   }
 }
 </script>

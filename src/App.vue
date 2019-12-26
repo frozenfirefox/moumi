@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
         <Menu mode="horizontal" theme="light" active-name="2">
             <MenuItem name="1">
                 <Icon type="ios-paper" />
@@ -18,7 +18,7 @@
                 <Icon type="ios-paper" />
                 <router-link to="/aiface">人脸融合</router-link>
             </MenuItem>
-            <!-- <Submenu name="3">
+            <Submenu name="3">
                 <template slot="title">
                     <Icon type="ios-stats" />
                     统计分析
@@ -36,9 +36,9 @@
             <MenuItem name="4">
                 <Icon type="ios-construct" />
                 综合设置
-            </MenuItem> -->
+            </MenuItem>
         </Menu>
-    </div>
+    </div> -->
     <router-view/>
   </div>
 </template>

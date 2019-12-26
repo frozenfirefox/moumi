@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-23 10:39:40
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-26 16:24:43
+* @Last Modified time: 2019-12-26 16:43:09
 */
 
 'use strict';
@@ -30,9 +30,24 @@ const loginSchema = mongoose.Schema({
   }
 );
 
+const cheatSchema = mongoose.Schema(
+    {
+        name: String,
+        code: String,
+        des:  String,
+        from: String,
+    },
+    {
+        timestamps: {
+            createdAt: true,
+            updatedAt: true,
+        },
+    }
+);
 /************** 定义模型Model **************/
 const Models = {
-    Login : mongoose.model('Login',loginSchema)
+    Login : mongoose.model('Login',loginSchema),
+    Cheat : mongoose.model('Cheat', cheatSchema),
 }
 
 module.exports = Models;

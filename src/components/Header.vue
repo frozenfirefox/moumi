@@ -42,6 +42,18 @@
             </router-link>
         </Col>
     </Row>
+    <Row>
+        <Col span="6">
+            <router-link to="/userList">
+                <Card>
+                    <div style="text-align:center">
+                        <img style="width: 50px;" src="../assets/image/logo.png">
+                        <h3>行骗信息</h3>
+                    </div>
+                </Card>
+            </router-link>
+        </Col>
+    </Row>
   </div>
 </template>
 

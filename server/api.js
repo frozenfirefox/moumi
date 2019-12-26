@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-23 10:39:47
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-26 12:59:54
+* @Last Modified time: 2019-12-26 17:23:14
 */
 
 // 可能是我的node版本问题，不用严格模式使用ES6语法会报错
@@ -85,4 +85,42 @@ router.post('/api/detect', function(req, res){
     let data = ai.getDetect(req.body.detect_img, res);
 });
 
+/*********************************************开始编写骗子记录************************************************/
+router.post('/api/cheat/insert', (req, res) => {
+    //这里边编写入库
+    let newData = new models.Cheat({
+        name: req.body.name,
+        code: req.body.code,
+        des:  req.body.des,
+        from: req.body.from,
+    });
+
+    let re = {};
+    // 保存数据newAccount数据进mongoDB
+    newData.save((err,data) => {
+        if (err) {
+            re.error_code   = 500;
+            re.error_msg    = err;
+        } else {
+            re.error_code   = 200;
+            re.error_msg    = '操作成功';
+        }
+        res.send(re);
+    });
+});
+
+router.get('/api/cheat/getData', (req, res) => {
+    let re = {};
+    models.Cheat.find((err,data) => {
+        if (err) {
+            re.error_code   = 500;
+            re.error_msg    = err;
+        } else {
+            re.error_code   = 200;
+            re.error_msg    = '操作成功';
+            re.data         = data;
+        }
+        res.send(re);
+    });
+});
 module.exports = router;

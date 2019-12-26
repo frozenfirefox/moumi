@@ -103,7 +103,7 @@ export default {
             }
             this.merge_img = res.data.merge_img;
             this.loading = false;
-            console.log(this.merge_img, 222);
+            window.console.log(this.merge_img, 222);
         }).catch((error) => {
             window.console.log(error);
         })

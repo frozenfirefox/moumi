@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import UserList from '../views/UserList.vue'
 import Aiface from '../views/Aiface.vue'
+import AiDetect from '../views/AiDetect.vue'
 
 Vue.use(VueRouter)
 
@@ -30,7 +31,11 @@ const routes = [
     name: 'aiface',
     component: Aiface
   },
-
+  {
+    path: '/aidetect',
+    name: 'AiDetect',
+    component: AiDetect
+  },
 ]
 
 const router = new VueRouter({

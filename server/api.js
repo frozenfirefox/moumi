@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-23 10:39:47
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-25 15:27:32
+* @Last Modified time: 2019-12-26 12:59:54
 */
 
 // 可能是我的node版本问题，不用严格模式使用ES6语法会报错
@@ -53,6 +53,7 @@ router.get('/api/login/getAccount',(req,res) => {
 
 //上传图片接口
 router.post('/api/upload', (req, res) => {
+    console.log(22222222);
     var oldName = req.files[0].path;
     var newName = oldName + path.parse(req.files[0].originalname).ext;
 
@@ -75,6 +76,13 @@ router.get('*/public/*', function (req, res) {
 router.post('/api/createMerge', function(req, res){
     //这里边处理；逻辑
     let data = ai.getMergeImg(req.body.template_img, req.body.target_img, res);
+});
+
+//人脸检测
+router.post('/api/detect', function(req, res){
+    console.log(333333333);
+    //这里边处理；逻辑
+    let data = ai.getDetect(req.body.detect_img, res);
 });
 
 module.exports = router;

@@ -2,7 +2,7 @@
 * @Author: Alpha
 * @Date:   2019-12-25 14:32:54
 * @Last Modified by:   Alpha
-* @Last Modified time: 2019-12-26 09:18:35
+* @Last Modified time: 2019-12-26 13:06:14
 */
 
 'use strict';
@@ -23,6 +23,8 @@ axios.defaults.headers = {
 const url = 'https://aip.baidubce.com/rest/2.0/face/v1/merge?access_token=';
 
 const token = '24.152710fc4b9bd9af755af4e9dc06d024.2592000.1579833659.282335-18103623';
+//人脸检测api
+const url_detect = 'https://aip.baidubce.com/rest/2.0/face/v3/detect?access_token=';
 
 const Ai = {
     getBase64: function(url){
@@ -64,6 +66,33 @@ const Ai = {
             re.error_code = 200;
             re.merge_img  = '/public/merge/'+name+".jpg";
             response.send(re);
+            return true;
+        }).catch((error) => {
+            console.log(error);
+        })
+    },
+    getDetect: function(path1, response){
+        let httpurl = url_detect+token;
+        let imgbase64 = this.getBase64(path1);
+        let params = {
+            image: imgbase64,
+            image_type: "BASE64",
+            face_field: "age,beauty,expression,face_shape,gender,glasses,landmark,landmark150,race,quality,eye_status,emotion,face_type",
+        };
+
+        axios.post(httpurl, qs.stringify(params)).then((res) => {
+            let re = {};
+            // console.log(res.data);
+            if(res.data.error_code != 0){
+                //处理错误的返回
+                re.error_code   = res.data.error_code;
+                re.error_msg    = res.data.error_msg;
+                response.send(re);
+                return false;
+            }
+
+            res.data.error_code = 200;
+            response.send(res.data);
             return true;
         }).catch((error) => {
             console.log(error);

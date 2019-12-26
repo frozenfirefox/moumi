@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <Row>
-        <Col span="8">
+        <Col span="6">
             <a  target="_blank" href="https://sci-hub.tw">
                 <Card>
                     <div style="text-align:center">
@@ -11,7 +11,7 @@
                 </Card>
             </a>
         </Col>
-        <Col span="8">
+        <Col span="6">
             <router-link to="/about">
                 <Card>
                     <div style="text-align:center">
@@ -21,7 +21,17 @@
                 </Card>
             </router-link>
         </Col>
-        <Col span="8">
+        <Col span="6">
+            <router-link to="/aidetect">
+                <Card>
+                    <div style="text-align:center">
+                        <img style="width: 50px;" src="../assets/image/logo.png">
+                        <h3>颜值检测</h3>
+                    </div>
+                </Card>
+            </router-link>
+        </Col>
+        <Col span="6">
             <router-link to="/aiface">
                 <Card>
                     <div style="text-align:center">
